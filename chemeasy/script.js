@@ -28,13 +28,13 @@ function ctrlShiftKey(e, keyCode) {
 function ctrlKey(e, keyCode) {
   return e.ctrlKey && e.keyCode === keyCode.charCodeAt(0);
 }
-// DisableDevtool({
-//   ondevtoolopen: (type) => {
-//     if(DisableDevtool.isRunning){console.log("Copyright restrictions are in effect.");
-//                                  window.location.href="../../test/init.html"
-//                                 }
-//   },
-// });
+DisableDevtool({
+  ondevtoolopen: (type) => {
+    if(DisableDevtool.isRunning){console.log("Copyright restrictions are in effect.");
+                                 window.location.href="../../test/init.html"
+                                }
+  },
+});
 document.onkeydown = (e) => {
   if ( 
     event.keyCode === 123 ||
