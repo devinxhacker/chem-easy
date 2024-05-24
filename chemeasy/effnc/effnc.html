@@ -1,0 +1,215 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>ChemEasy-Effective Nuclear Charge</title>
+  <meta name="description" content="ChemEasy is a website that allows users to easily access and learn about chemistry. We provide a variety of resources, including videos, articles, and interactive exercises, to help users learn and understand the fundamentals of chemistry. Our goal is to empower users with the knowledge and skills they need to succeed in their chemistry endeavors.">
+  <meta name="keywords" content="Chemistry, ChemEasy, Learn, Chemistry">
+  <meta name="author" content="ChemEasy">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#093b45">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="#093b45">
+  <meta name="apple-mobile-web-app-title" content="ChemEasy">
+  <meta name="msapplication-TileColor" content="#093b45">
+  <link href="../style.css" rel="stylesheet" type="text/css" />
+  <link href="effnc.css" rel="stylesheet" type="text/css" />
+  <link rel="icon" type="image/x-icon" href="../images/chemeasyicon.png">
+  <!-- <script src="https://cdn.jsdelivr.net/npm/disable-devtool"></script> -->
+  <script src="../script.js"></script>
+  <script src="effnc.js"></script>
+  <script src="../user/update.js" defer type="module"></script>
+</head>
+
+<body id="body">
+  <div class="load-holder" id="load-holder"><div id="loader"></div></div>
+  <header>
+    <div class="header">
+      <div class="hlogo"><img class="headlogo" src="../images/chemeasyicon.png" style="width:100%; height:100%" alt="chemeasyicon"></div>
+      <img class="headpro" style="display:none" id="userProfilePicture" alt="chemeasyicon">
+      <h1>Effective Nuclear Charge</h1>
+    </div>
+  </header>
+  <nav>
+    <div class="topnav">
+      <button class="winback" onclick="window.history.back()"><img src="../images/winback.png" alt="<- Back" title="Back" height="20px" width="20px"></button>
+      <ul>
+        <li><a href="../index.html">Home</a></li>
+        <li><a href="../aboutus.html">About</a></li>
+        <li><a href="../contact.html">Contact</a></li>
+        <li><a href="../user/login.html" id="userNameinter">Login</a></li>
+          <a id="userName" style="display:none"></a>
+          <p id="userEmail" style="display:none"></p>
+      </ul>
+    </div>
+  </nav>
+  <main>
+    <div class="row">
+      <div class="column">
+        <div id="dec">
+          <h2>Effective Nuclear Charge</h2>
+          <p>Effective nuclear charge is a measure of the ability of a nucleus to attract and repel particles. It is a
+            useful tool for understanding the behavior of nuclei and determining the strength of nuclear reactions.</p>
+        </div>
+        <h3>To Calculate Effective Nuclear Charge: </h3>
+        <p>Select the Element: </p>
+        <select id="element" onchange="calculateEffectiveNuclearCharge()">
+          <option value="1">1 - Hydrogen (H) </option>
+          <option value="2">2 - Helium (He) </option>
+          <option value="3">3 - Lithium (Li) </option>
+          <option value="4">4 - Beryllium (Be) </option>
+          <option value="5">5 - Boron (B) </option>
+          <option value="6">6 - Carbon (C) </option>
+          <option value="7">7 - Nitrogen (N) </option>
+          <option value="8">8 - Oxygen (O) </option>
+          <option value="9">9 - Fluorine (F) </option>
+          <option value="10">10 - Neon (Ne) </option>
+          <option value="11">11 - Sodium (Na) </option>
+          <option value="12">12 - Magnesium (Mg) </option>
+          <option value="13">13 - Aluminum (Al) </option>
+          <option value="14">14 - Silicon (Si) </option>
+          <option value="15">15 - Phosphorus (P) </option>
+          <option value="16">16 - Sulfur (S) </option>
+          <option value="17">17 - Chlorine (Cl) </option>
+          <option value="18">18 - Argon (Ar) </option>
+          <option value="19">19 - Potassium (K) </option>
+          <option value="20">20 - Calcium (Ca) </option>
+          <option value="21">21 - Scandium (Sc) </option>
+          <option value="22">22 - Titanium (Ti) </option>
+          <option value="23">23 - Vanadium (V) </option>
+          <option value="24">24 - Chromium (Cr) </option>
+          <option value="25">25 - Manganese (Mn) </option>
+          <option value="26">26 - Iron (Fe) </option>
+          <option value="27">27 - Cobalt (Co) </option>
+          <option value="28">28 - Nickel (Ni) </option>
+          <option value="29">29 - Copper (Cu) </option>
+          <option value="30">30 - Zinc (Zn) </option>
+          <option value="31">31 - Gallium (Ga) </option>
+          <option value="32">32 - Germanium (Ge) </option>
+          <option value="33">33 - Arsenic (As) </option>
+          <option value="34">34 - Selenium (Se) </option>
+          <option value="35">35 - Bromine (Br) </option>
+          <option value="36">36 - Krypton (Kr) </option>
+          <option value="37">37 - Rubidium (Rb) </option>
+          <option value="38">38 - Strontium (Sr) </option>
+          <option value="39">39 - Yttrium (Y) </option>
+          <option value="40">40 - Zirconium (Zr) </option>
+          <option value="41">41 - Niobium (Nb) </option>
+          <option value="42">42 - Molybdenum (Mo) </option>
+          <option value="43">43 - Technetium (Tc) </option>
+          <option value="44">44 - Ruthenium (Ru) </option>
+          <option value="45">45 - Rhodium (Rh) </option>
+          <option value="46">46 - Palladium (Pd) </option>
+          <option value="47">47 - Silver (Ag) </option>
+          <option value="48">48 - Cadmium (Cd) </option>
+          <option value="49">49 - Indium (In) </option>
+          <option value="50">50 - Tin (Sn) </option>
+          <option value="51">51 - Antimony (Sb) </option>
+          <option value="52">52 - Tellurium (Te) </option>
+          <option value="53">53 - Iodine (I) </option>
+          <option value="54">54 - Xenon (Xe) </option>
+          <option value="55">55 - Cesium (Cs) </option>
+          <option value="56">56 - Barium (Ba) </option>
+          <option value="57">57 - Lanthanum (La) </option>
+          <option value="58">58 - Cerium (Ce) </option>
+          <option value="59">59 - Praseodymium (Pr) </option>
+          <option value="60">60 - Neodymium (Nd) </option>
+          <option value="61">61 - Promethium (Pm) </option>
+          <option value="62">62 - Samarium (Sm) </option>
+          <option value="63">63 - Europium (Eu) </option>
+          <option value="64">64 - Gadolinium (Gd) </option>
+          <option value="65">65 - Terbium (Tb) </option>
+          <option value="66">66 - Dysprosium (Dy) </option>
+          <option value="67">67 - Holmium (Ho) </option>
+          <option value="68">68 - Erbium (Er) </option>
+          <option value="69">69 - Thulium (Tm) </option>
+          <option value="70">70 - Ytterbium (Yb) </option>
+          <option value="71">71 - Lutetium (Lu) </option>
+          <option value="72">72 - Hafnium (Hf) </option>
+          <option value="73">73 - Tantalum (Ta) </option>
+          <option value="74">74 - Tungsten (W) </option>
+          <option value="75">75 - Rhenium (Re) </option>
+          <option value="76">76 - Osmium (Os) </option>
+          <option value="77">77 - Iridium (Ir) </option>
+          <option value="78">78 - Platinum (Pt) </option>
+          <option value="79">79 - Gold (Au) </option>
+          <option value="80">80 - Mercury (Hg) </option>
+          <option value="81">81 - Thallium (Tl) </option>
+          <option value="82">82 - Lead (Pb) </option>
+          <option value="83">83 - Bismuth (Bi) </option>
+          <option value="84">84 - Polonium (Po) </option>
+          <option value="85">85 - Astatine (At) </option>
+          <option value="86">86 - Radon (Rn) </option>
+          <option value="87">87 - Francium (Fr) </option>
+          <option value="88">88 - Radium (Ra) </option>
+          <option value="89">89 - Actinium (Ac) </option>
+          <option value="90">90 - Thorium (Th) </option>
+          <option value="91">91 - Protactinium (Pa) </option>
+          <option value="92">92 - Uranium (U) </option>
+          <option value="93">93 - Neptunium (Np) </option>
+          <option value="94">94 - Plutonium (Pu) </option>
+          <option value="95">95 - Americium (Am) </option>
+          <option value="96">96 - Curium (Cm) </option>
+          <option value="97">97 - Berkelium (Bk) </option>
+          <option value="98">98 - Californium (Cf) </json>
+          <option value="99">99 - Einsteinium (Es) </option>
+          <option value="100">100 - Fermium (Fm) </option>
+          <option value="101">101 - Mendelevium (Md) </option>
+          <option value="102">102 - Nobelium (No) </option>
+          <option value="103">103 - Lawrencium (Lr) </option>
+          <option value="104">104 - Rutherfordium (Rf) </option>
+          <option value="105">105 - Dubnium (Db) </option>
+          <option value="106">106 - Seaborgium (Sg) </option>
+          <option value="107">107 - Bohrium (Bh) </option>
+          <option value="108">108 - Hassium (Hs) </option>
+          <option value="109">109 - Meitnerium (Mt) </option>
+          <option value="110">110 - Darmstadtium (Ds) </option>
+          <option value="111">111 - Roentgenium (Rg) </option>
+          <option value="112">112 - Copernicium (Cn) </option>
+          <option value="113">113 - Nihonium (Nh) </option>
+          <option value="114">114 - Flerovium (Fl) </option>
+          <option value="115">115 - Moscovium (Mc) </json>
+          <option value="116">116 - Livermorium (Lv) </option>
+          <option value="117">117 - Tennessine (Ts) </option>
+          <option value="118">118 - Oganesson (Og)</option>
+        </select>
+        <h3>Electronic Configuration: </h3>
+        <p id="electronic_config">1s1</p>
+
+        <h3>Electron Selection: </h3>
+        <p>Principal quantum number (n) : </p>
+        <select id="n" onchange="calculateEffectiveNuclearCharge()">
+          <option value="1">1</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+          <option value="4">4</option>
+          <option value="5">5</option>
+          <option value="6">6</option>
+          <option value="7">7</option>
+        </select>
+        <p>Azimuthal quantum number (l) : </p>
+        <select id="l" onchange="calculateEffectiveNuclearCharge()">
+          <option value="0" id="2">s</option>
+          <option value="1" id="6">p</option>
+          <option value="2" id="10">d</option>
+          <option value="3" id="14">f</option>
+        </select>
+
+        <h3>You choose an electron in the orbital <span id="op_orbital">1s</span></h3>
+        <h3>Value of the sheilding: <span id="op_shielding">0.00</span></h3>
+        <h3>Effective charge: <span id="op_effective_charge">1.00</span></h3>
+        <p>This calculator implements <b>Slater's rules.</b> Other methods may return slightly different results.</p>
+      </div>
+    </div>
+  </main>
+
+</body>
+<footer>
+  <div class="footer">
+    <p></p>
+  </div>
+</footer>
+
+</html>

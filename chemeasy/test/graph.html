@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Line Graph</title>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+  <table id="dataInput">
+    <tr>
+      <th>X Values</th>
+      <th>Y Values</th>
+    </tr>
+    <tr>
+      <td><input type="text" class="x-input"></td>
+      <td><input type="text" class="y-input"></td>
+    </tr>
+  </table>
+  <button onclick="addRow()">Add Row</button>
+  <button onclick="generateGraph()">Generate Graph</button>
+  <canvas id="myChart" width="400" height="400"></canvas>
+
+  <script>
+    function addRow() {
+      var table = document.getElementById('dataInput');
+      var newRow = table.insertRow(table.rows.length);
+      newRow.innerHTML = '<td><input type="text" class="x-input"></td>' +
+                         '<td><input type="text" class="y-input"></td>';
+    }
+
+    function generateGraph() {
+      var xValues = [];
+      var yValues = [];
+
+      // Loop through table rows and collect input values
+      var tableRows = document.querySelectorAll('#dataInput tr');
+      tableRows.forEach(function(row, index) {
+        if (index !== 0) { // Skip header row
+          var xInput = row.querySelector('.x-input').value;
+          var yInput = row.querySelector('.y-input').value;
+          xValues.push(parseFloat(xInput));
+          yValues.push(parseFloat(yInput));
+        }
+      });
+
+      var ctx = document.getElementById('myChart').getContext('2d');
+      var chart = new Chart(ctx, {
+        type: 'line',
+        data: {
+          labels: xValues,
+          datasets: [{
+            label: 'Y Values',
+            data: yValues,
+            borderColor: 'rgb(75, 192, 192)',
+            tension: 0.1
+          }]
+        },
+        options: {}
+      });
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>ChemEasy-bonding</title>
+  <meta name="description" content="ChemEasy is a website that allows users to easily access and learn about chemistry. We provide a variety of resources, including videos, articles, and interactive exercises, to help users learn and understand the fundamentals of chemistry. Our goal is to empower users with the knowledge and skills they need to succeed in their chemistry endeavors.">
+  <meta name="keywords" content="Chemistry, ChemEasy, Learn, Chemistry">
+  <meta name="author" content="ChemEasy">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#093b45">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="#093b45">
+  <meta name="apple-mobile-web-app-title" content="ChemEasy">
+  <meta name="msapplication-TileImage" content="images/icons/icon-144x144.png">
+  <meta name="msapplication-TileColor" content="#093b45">
+  <link href="../style.css" rel="stylesheet" type="text/css" />
+  <link rel="icon" type="image/x-icon" href="../images/chemeasyicon.png">
+  <script src="https://cdn.jsdelivr.net/npm/disable-devtool"></script>
+  <script src="../script.js"></script>
+  <script src="../user/update.js" defer type="module"></script>
+</head>
+
+<body id="body">
+  <div class="load-holder" id="load-holder"><div id="loader"></div></div>
+  <script src="bonding.js"></script>
+  <header>
+    <div class="header">
+      <div class="hlogo"><img class="headlogo" src="../images/chemeasyicon.png" style="width:100%; height:100%" alt="chemeasyicon"></div>
+      <img class="headpro" style="display:none" id="userProfilePicture" alt="chemeasyicon">
+      <h1>ChemEasy</h1>
+    </div>
+  </header>
+  <nav>
+    <div class="topnav">
+      <button class="winback" onclick="window.history.back()"><img src="../images/winback.png" alt="<- Back" title="Back" height="20px" width="20px"></button>
+      <ul>
+      <li><a href="../index.html">Home</a></li>
+      <li><a href="../aboutus.html">About</a></li>
+      <li><a href="../contact.html">Contact</a></li>
+      <li><a href="../user/login.html" id="userNameinter">Login</a></li>
+        <a id="userName" style="display:none"></a>
+        <p id="userEmail" style="display:none"></p>
+      </ul>
+    </div>
+  </nav>
+  <main>
+    <div class="row">
+      <div class="column">
+        <div id="dec">
+          <h2>Bonding</h2>
+          <p>In chemistry, bonding is the attraction between atoms. This attraction can be caused by the different behaviors of the atoms' outermost electrons. Chemical bonds hold molecules together and create temporary connections that are essential to life.<br><br>
+            <h4>A “rule of thumb” for determining how a bond will behave in chemical reactions is:</h4><ul><li>If the electronegativity difference between the two bonded atoms is<b> > </b>0.4, the bond will behave as polar.</li>
+            <li>If the electronegativity difference is 0.4 or less, the bond will behave as nonpolar.</li>
+            <li>If the electronegativity difference is<b> > </b>2, the bond will behave as ionic.</li></ul></p>
+        </div>
+      </div>
+    </div>
+    <br><br>
+    <p>Select Element - 1: </p>
+    <select id="element1">
+      <option value="H">Hydrogen - H</option>
+      <option value="He">Helium - He</option>
+      <option value="Li">Lithium - Li</option>
+      <option value="Be">Beryllium - Be</option>
+      <option value="B">Boron - B</option>
+      <option value="C">Carbon - C</option>
+      <option value="N">Nitrogen - N</option>
+      <option value="O">Oxygen - O</option>
+      <option value="F">Fluorine - F</option>
+      <option value="Ne">Neon - Ne</option>
+      <option value="Na">Sodium - Na</option>
+      <option value="Mg">Magnesium - Mg</option>
+      <option value="Al">Aluminum - Al</option>
+      <option value="Si">Silicon - Si</option>
+      <option value="P">Phosphorus - P</option>
+      <option value="S">Sulfur - S</option>
+      <option value="Cl">Chlorine - Cl</option>
+      <option value="Ar">Argon - Ar</option>
+      <option value="K">Potassium - K</option>
+      <option value="Ca">Calcium - Ca</option>
+      <option value="Sc">Scandium - Sc</option>
+      <option value="Ti">Titanium - Ti</option>
+      <option value="V">Vanadium - V</option>
+      <option value="Cr">Chromium - Cr</option>
+      <option value="Mn">Manganese - Mn</option>
+      <option value="Fe">Iron - Fe</option>
+      <option value="Co">Cobalt - Co</option>
+      <option value="Ni">Nickel - Ni</option>
+      <option value="Cu">Copper - Cu</option>
+      <option value="Zn">Zinc - Zn</option>
+      <option value="Ga">Gallium - Ga</option>
+      <option value="Ge">Germanium - Ge</option>
+      <option value="As">Arsenic - As</option>
+      <option value="Se">Selenium - Se</option>
+      <option value="Br">Bromine - Br</option>
+      <option value="Kr">Krypton - Kr</option>
+      <option value="Rb">Rubidium - Rb</option>
+      <option value="Sr">Strontium - Sr</option>
+      <option value="Y">Yttrium - Y</option>
+      <option value="Zr">Zirconium - Zr</option>
+      <option value="Nb">Niobium - Nb</option>
+      <option value="Mo">Molybdenum - Mo</option>
+      <option value="Tc">Technetium - Tc</option>
+      <option value="Ru">Ruthenium - Ru</option>
+      <option value="Rh">Rhodium - Rh</option>
+      <option value="Pd">Palladium - Pd</option>
+      <option value="Ag">Silver - Ag</option>
+      <option value="Cd">Cadmium - Cd</option>
+      <option value="In">Indium - In</option>
+      <option value="Sn">Tin - Sn</option>
+      <option value="Sb">Antimony - Sb</option>
+      <option value="Te">Tellurium - Te</option>
+      <option value="I">Iodine - I</option>
+      <option value="Xe">Xenon - Xe</option>
+      <option value="Cs">Cesium - Cs</option>
+      <option value="Ba">Barium - Ba</option>
+      <option value="La">Lanthanum - La</option>
+      <option value="Ce">Cerium - Ce</option>
+      <option value="Pr">Praseodymium - Pr</option>
+      <option value="Nd">Neodymium - Nd</option>
+      <option value="Pm">Promethium - Pm</option>
+      <option value="Sm">Samarium - Sm</option>
+      <option value="Eu">Europium - Eu</option>
+      <option value="Gd">Gadolinium - Gd</option>
+      <option value="Tb">Terbium - Tb</option>
+      <option value="Dy">Dysprosium - Dy</option>
+      <option value="Ho">Holmium - Ho</option>
+      <option value="Er">Erbium - Er</option>
+      <option value="Tm">Thulium - Tm</option>
+      <option value="Yb">Ytterbium - Yb</option>
+      <option value="Lu">Lutetium - Lu</option>
+      <option value="Hf">Hafnium - Hf</option>
+      <option value="Ta">Tantalum - Ta</option>
+      <option value="W">Tungsten - W</option>
+      <option value="Re">Rhenium - Re</option>
+      <option value="Os">Osmium - Os</option>
+      <option value="Ir">Iridium - Ir</option>
+      <option value="Pt">Platinum - Pt</option>
+      <option value="Au">Gold - Au</option>
+      <option value="Hg">Mercury - Hg</option>
+      <option value="Tl">Thallium - Tl</option>
+      <option value="Pb">Lead - Pb</option>
+      <option value="Bi">Bismuth - Bi</option>
+      <option value="Po">Polonium - Po</option>
+      <option value="At">Astatine - At</option>
+      <option value="Rn">Radon - Rn</option>
+      <option value="Fr">Francium - Fr</option>
+      <option value="Ra">Radium - Ra</option>
+      <option value="Ac">Actinium - Ac</option>
+      <option value="Th">Thorium - Th</option>
+      <option value="Pa">Protactinium - Pa</option>
+      <option value="U">Uranium - U</option>
+      <option value="Np">Neptunium - Np</option>
+      <option value="Pu">Plutonium - Pu</option>
+      <option value="Am">Americium - Am</option>
+      <option value="Cm">Curium - Cm</option>
+      <option value="Bk">Berkelium - Bk</option>
+      <option value="Cf">Californium - Cf</option>
+      <option value="Es">Einsteinium - Es</option>
+      <option value="Fm">Fermium - Fm</option>
+      <option value="Md">Mendelevium - Md</option>
+      <option value="No">Nobelium - No</option>
+      <option value="Lr">Lawrencium - Lr</option>
+      <option value="Rf">Rutherfordium - Rf</option>
+      <option value="Db">Dubnium - Db</option>
+      <option value="Sg">Seaborgium - Sg</option>
+      <option value="Bh">Bohrium - Bh</option>
+      <option value="Hs">Hassium - Hs</option>
+      <option value="Mt">Meitnerium - Mt</option>
+      <option value="Ds">Darmstadtium - Ds</option>
+      <option value="Rg">Roentgenium - Rg</option>
+      <option value="Cn">Copernicium - Cn</option>
+      <option value="Nh">Nihonium - Nh</option>
+      <option value="Fl">Flerovium - Fl</option>
+      <option value="Mc">Moscovium - Mc</option>
+      <option value="Lv">Livermorium - Lv</option>
+      <option value="Ts">Tennessine - Ts</option>
+      <option value="Og">Oganesson - Og</option>
+    </select>
+
+    <br><br><br>
+
+    <p>Select Element - 2: </p>
+    <select id="element2" onchange="get_electronic_config()">
+      <option value="H">Hydrogen - H</option>
+      <option value="He">Helium - He</option>
+      <option value="Li">Lithium - Li</option>
+      <option value="Be">Beryllium - Be</option>
+      <option value="B">Boron - B</option>
+      <option value="C">Carbon - C</option>
+      <option value="N">Nitrogen - N</option>
+      <option value="O">Oxygen - O</option>
+      <option value="F">Fluorine - F</option>
+      <option value="Ne">Neon - Ne</option>
+      <option value="Na">Sodium - Na</option>
+      <option value="Mg">Magnesium - Mg</option>
+      <option value="Al">Aluminum - Al</option>
+      <option value="Si">Silicon - Si</option>
+      <option value="P">Phosphorus - P</option>
+      <option value="S">Sulfur - S</option>
+      <option value="Cl">Chlorine - Cl</option>
+      <option value="Ar">Argon - Ar</option>
+      <option value="K">Potassium - K</option>
+      <option value="Ca">Calcium - Ca</option>
+      <option value="Sc">Scandium - Sc</option>
+      <option value="Ti">Titanium - Ti</option>
+      <option value="V">Vanadium - V</option>
+      <option value="Cr">Chromium - Cr</option>
+      <option value="Mn">Manganese - Mn</option>
+      <option value="Fe">Iron - Fe</option>
+      <option value="Co">Cobalt - Co</option>
+      <option value="Ni">Nickel - Ni</option>
+      <option value="Cu">Copper - Cu</option>
+      <option value="Zn">Zinc - Zn</option>
+      <option value="Ga">Gallium - Ga</option>
+      <option value="Ge">Germanium - Ge</option>
+      <option value="As">Arsenic - As</option>
+      <option value="Se">Selenium - Se</option>
+      <option value="Br">Bromine - Br</option>
+      <option value="Kr">Krypton - Kr</option>
+      <option value="Rb">Rubidium - Rb</option>
+      <option value="Sr">Strontium - Sr</option>
+      <option value="Y">Yttrium - Y</option>
+      <option value="Zr">Zirconium - Zr</option>
+      <option value="Nb">Niobium - Nb</option>
+      <option value="Mo">Molybdenum - Mo</option>
+      <option value="Tc">Technetium - Tc</option>
+      <option value="Ru">Ruthenium - Ru</option>
+      <option value="Rh">Rhodium - Rh</option>
+      <option value="Pd">Palladium - Pd</option>
+      <option value="Ag">Silver - Ag</option>
+      <option value="Cd">Cadmium - Cd</option>
+      <option value="In">Indium - In</option>
+      <option value="Sn">Tin - Sn</option>
+      <option value="Sb">Antimony - Sb</option>
+      <option value="Te">Tellurium - Te</option>
+      <option value="I">Iodine - I</option>
+      <option value="Xe">Xenon - Xe</option>
+      <option value="Cs">Cesium - Cs</option>
+      <option value="Ba">Barium - Ba</option>
+      <option value="La">Lanthanum - La</option>
+      <option value="Ce">Cerium - Ce</option>
+      <option value="Pr">Praseodymium - Pr</option>
+      <option value="Nd">Neodymium - Nd</option>
+      <option value="Pm">Promethium - Pm</option>
+      <option value="Sm">Samarium - Sm</option>
+      <option value="Eu">Europium - Eu</option>
+      <option value="Gd">Gadolinium - Gd</option>
+      <option value="Tb">Terbium - Tb</option>
+      <option value="Dy">Dysprosium - Dy</option>
+      <option value="Ho">Holmium - Ho</option>
+      <option value="Er">Erbium - Er</option>
+      <option value="Tm">Thulium - Tm</option>
+      <option value="Yb">Ytterbium - Yb</option>
+      <option value="Lu">Lutetium - Lu</option>
+      <option value="Hf">Hafnium - Hf</option>
+      <option value="Ta">Tantalum - Ta</option>
+      <option value="W">Tungsten - W</option>
+      <option value="Re">Rhenium - Re</option>
+      <option value="Os">Osmium - Os</option>
+      <option value="Ir">Iridium - Ir</option>
+      <option value="Pt">Platinum - Pt</option>
+      <option value="Au">Gold - Au</option>
+      <option value="Hg">Mercury - Hg</option>
+      <option value="Tl">Thallium - Tl</option>
+      <option value="Pb">Lead - Pb</option>
+      <option value="Bi">Bismuth - Bi</option>
+      <option value="Po">Polonium - Po</option>
+      <option value="At">Astatine - At</option>
+      <option value="Rn">Radon - Rn</option>
+      <option value="Fr">Francium - Fr</option>
+      <option value="Ra">Radium - Ra</option>
+      <option value="Ac">Actinium - Ac</option>
+      <option value="Th">Thorium - Th</option>
+      <option value="Pa">Protactinium - Pa</option>
+      <option value="U">Uranium - U</option>
+      <option value="Np">Neptunium - Np</option>
+      <option value="Pu">Plutonium - Pu</option>
+      <option value="Am">Americium - Am</option>
+      <option value="Cm">Curium - Cm</option>
+      <option value="Bk">Berkelium - Bk</option>
+      <option value="Cf">Californium - Cf</option>
+      <option value="Es">Einsteinium - Es</option>
+      <option value="Fm">Fermium - Fm</option>
+      <option value="Md">Mendelevium - Md</option>
+      <option value="No">Nobelium - No</option>
+      <option value="Lr">Lawrencium - Lr</option>
+      <option value="Rf">Rutherfordium - Rf</option>
+      <option value="Db">Dubnium - Db</option>
+      <option value="Sg">Seaborgium - Sg</option>
+      <option value="Bh">Bohrium - Bh</option>
+      <option value="Hs">Hassium - Hs</option>
+      <option value="Mt">Meitnerium - Mt</option>
+      <option value="Ds">Darmstadtium - Ds</option>
+      <option value="Rg">Roentgenium - Rg</option>
+      <option value="Cn">Copernicium - Cn</option>
+      <option value="Nh">Nihonium - Nh</option>
+      <option value="Fl">Flerovium - Fl</option>
+      <option value="Mc">Moscovium - Mc</option>
+      <option value="Lv">Livermorium - Lv</option>
+      <option value="Ts">Tennessine - Ts</option>
+      <option value="Og">Oganesson - Og</option>
+    </select>
+
+    <br><br><br><br>
+
+
+
+    <button onclick="main()">Go</button>
+    <p id="output"></p>
+    <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+
+  </main>
+  <footer>
+    <div class="footer">
+      <p></p>
+    </div>
+  </footer>
+</body>
+
+</html>

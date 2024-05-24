@@ -1,0 +1,120 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <meta
+      name="description"
+      content="ChemEasy is a website that allows users to easily access and learn about chemistry. We provide a variety of resources, including videos, articles, and interactive exercises, to help users learn and understand the fundamentals of chemistry. Our goal is to empower users with the knowledge and skills they need to succeed in their chemistry endeavors."
+    />
+    <meta name="keywords" content="Chemistry, ChemEasy, Learn, Chemistry" />
+    <meta name="author" content="ChemEasy" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#093b45" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="#093b45" />
+    <meta name="apple-mobile-web-app-title" content="ChemEasy" />
+    <meta
+      name="msapplication-TileImage"
+      content="images/icons/icon-144x144.png"
+    />
+    <meta name="msapplication-TileColor" content="#093b45" />
+    <link href="../style.css" rel="stylesheet" type="text/css" />
+    <link rel="icon" type="image/x-icon" href="../images/chemeasyicon.png" />
+    <!-- <script src="user.js" defer type="module"></script> -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <script src="update.js" defer type="module"></script>
+    <script src="log.js" defer type="module"></script>
+    <script src="https://cdn.jsdelivr.net/npm/disable-devtool"></script>
+    <script src="../script.js"></script>
+    <title>ChemEasy-Profile</title>
+  </head>
+  <body id="body">
+    <div class="load-holder" id="load-holder"><div id="loader"></div></div>
+    <header>
+      <div class="header">
+        <div class="hlogo">
+          <img
+            class="headlogo"
+            src="../images/chemeasyicon.png"
+            style="width: 100%; height: 100%"
+            alt="chemeasyicon"
+          />
+        </div>
+        <img
+          class="headpro"
+          style="display: none"
+          id="userProfilePicture"
+          alt="user"
+        >
+        <h1>ChemEasy</h1>
+      </div>
+    </header>
+    <nav>
+      <div class="topnav">
+        <ul>
+          <li><a href="../index.html">Home</a></li>
+          <li><a href="../aboutus.html">About</a></li>
+          <li><a href="../contact.html">Contact</a></li>
+          <li>
+            <a href="user/login.html" id="userName" class="active">Login</a>
+          </li>
+          <!-- <li><a href="coming_soon.html">Sign Up</a></li> -->
+        </ul>
+      </div>
+    </nav>
+    <main>
+      <center>
+        <div class="content">
+          <h1>User Profile:</h1>
+          <br /><br />
+          <div class="card"><br>
+            <img class="upropic" id="userProfilePicture2" alt="" /><br><br>
+            <h3 id="userName2"></h3>
+            <h4 id="userEmail"></h4>
+            <i style="color: black;font-size: 40px;" class="fas fa-user-circle"></i>
+            <br /><br />
+            <button id="logout">Logout</button><br><br>
+          </div>
+          <!-- <br /><br /><br /> -->
+          <!-- <button class="winback" onclick="window.history.back()">
+            <img
+              src="../images/winback.png"
+              alt="<- Back"
+              title="Back"
+              height="20px"
+              width="20px"
+            />
+          </button> -->
+          <br /><br /><br />
+        </div>
+        <br /><br /><br />
+        <img
+          class="loglogo"
+          src="../images/chemeasyicon.png"
+          height="50%"
+          width="50%"
+          alt="chemeasyicon"
+          class="chemeasyicon"
+        />
+        <!-- <section>
+          <br /><br />
+
+          <h1>Install Our Android App Now!</h1>
+          <br /><br />
+          <a
+            class="apkinstaller"
+            href="https://www.webintoapp.com/download/apk/296376/app-release.apk"
+            ><i class="fas fa-download"></i> Install</a
+          >
+        </section> -->
+      </center>
+    </main>
+    <br><br>
+    <footer>
+      <div class="footer">
+        <p></p>
+      </div>
+    </footer>
+  </body>
+</html>

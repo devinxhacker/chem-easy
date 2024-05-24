@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>ChemEasy-phmetry</title>
+  <meta name="description" content="ChemEasy is a website that allows users to easily access and learn about chemistry. We provide a variety of resources, including videos, articles, and interactive exercises, to help users learn and understand the fundamentals of chemistry. Our goal is to empower users with the knowledge and skills they need to succeed in their chemistry endeavors.">
+  <meta name="keywords" content="Chemistry, ChemEasy, Learn, Chemistry">
+  <meta name="author" content="ChemEasy">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#093b45">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="#093b45">
+  <meta name="apple-mobile-web-app-title" content="ChemEasy">
+  <meta name="msapplication-TileImage" content="images/icons/icon-144x144.png">
+  <meta name="msapplication-TileColor" content="#093b45">
+  <link href="../style.css" rel="stylesheet" type="text/css" />
+  <link rel="icon" type="image/x-icon" href="../images/chemeasyicon.png">
+  <link rel="stylesheet" type="text/css" href="../conductometry/conductometry.css">
+  <script src="https://cdn.jsdelivr.net/npm/disable-devtool"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="../script.js"></script>
+  <script src="../user/update.js" defer type="module"></script>
+  <script src="phmetry.js"></script>
+  <link href="phmetry.css" rel="stylesheet" type="text/css" />
+  <script>
+
+    var counter = -1;
+
+    function delete_last_row(){
+      var table = document.getElementById("dataInput");
+      table.deleteRow(table.rows.length - 1);
+    }
+
+    function add_row() {
+      counter += 1;
+      var table = document.getElementById('dataInput');
+      var table2 = document.getElementById('dataInput2');
+      var newRow = table.insertRow(table.rows.length);
+      var rate = document.getElementById("rate").value;
+      var rate_value = parseFloat(rate);
+      newRow.innerHTML = '<input type="number" class="sr_no" readonly value="' + (table.rows.length - 1) + '">' + 
+        '<td><input type="number" class="x-input" id="x'+counter+'" readonly></td>' + 
+        '<td><input type="number" class="y-input" id="y'+counter+'"></td>';
+      var x_input = newRow.cells[0].getElementsByTagName('input')[0];
+      var y_input = newRow.cells[1].getElementsByTagName('input')[0];
+      var row_id = table.rows.length - 2;
+      x_input.value = parseFloat(row_id*rate_value).toFixed(1);
+
+    }
+
+    function call_add_row(){
+      var table = document.getElementById("dataInput");
+      var table2 = document.getElementById("dataInput2");
+      var v1 = document.getElementById("vol1").value;
+      var range = parseFloat(v1);
+      var rate = document.getElementById("rate").value;
+      var rate_value = parseFloat(rate);
+      var row_id = table.rows.length - 1;
+      console.log(table.rows.length);
+      if (rate_value<=0){
+        alert("Please enter a positive rate value");
+        return;
+      }
+      
+      while (table.rows.length > 1) {
+        table.deleteRow(1);
+      }
+
+      
+      for (var i = 0.0; i <= range; i += rate_value) {
+        counter += 1;
+        var row = table.insertRow(table.rows.length);
+        var row2 = table2.insertRow(table2.rows.length);
+        var cell1 = row.insertCell(0);
+        var cell2 = row.insertCell(1);
+        var cell3 = row.insertCell(2);
+        var cell4 = row2.insertCell(0);
+        var cell5 = row2.insertCell(1);
+        var cell6 = row2.insertCell(2);
+        var cell7 = row2.insertCell(3);
+
+        cell1.innerHTML = '<input type="number" class="sr_no" readonly value="' + (table.rows.length - 1) + '">';
+        cell2.innerHTML = "<input type=\"number\" class = \"x-input\" value=" + i.toFixed(1) + " id='x"+counter+"' readonly>";
+        cell3.innerHTML = '<input type="number" class="y-input" id="y'+counter+'">';
+
+        
+        // // Delta ph value = y2-y1
+        var dph = document.getElementById("x"+counter).value;
+        console.log("dph: "+dph);
+
+        
+        cell4.innerHTML = '<input type="number" class="del_ph" value="'+dph+'" readonly>';
+        cell5.innerHTML = '<input type="number" class="del_v" value="'+rate_value+'" readonly>';
+        cell6.innerHTML = '<input type="number" class="pdh/dv" readonly>';
+        cell7.innerHTML = '<input type="number" class="mean" readonly>';
+
+        if(i==0.0){
+            cell4.innerHTML = '<input type="number" class="del_ph" placeholder="---" disabled>';
+            cell5.innerHTML = '<input type="number" class="del_v" placeholder="---" disabled>';
+            cell6.innerHTML = '<input type="number" class="pdh/dv" placeholder="---" disabled>';
+            cell7.innerHTML = '<input type="number" class="mean" placeholder="---" disabled>';
+        }
+        console.log(table.row_id);
+      }
+    }
+
+    function checkvalues(){
+      var tableRows = document.querySelectorAll('#dataInput tr');
+      var count = 0;
+      tableRows.forEach(function(row, index) {
+        if (index !== 0) {
+          var yInput = row.querySelector('.y-input').value;
+          if (yInput==null || yInput==""){
+            count = count+1
+          }
+        }
+      });
+      if(count>0){
+        alert("Please enter a value for all the values");
+        return;
+      }
+      else{
+        generateGraph();
+      }
+    }
+
+    function generateGraph() {
+      var tableRows = document.querySelectorAll('#dataInput tr');
+      var ctx = document.getElementById('myChart').getContext('2d');
+      ctx.clearRect(0, 0, ctx.canvas.width, ctx.canvas.height);
+
+      var reset = document.getElementById("reset");
+      reset.style.display = "block";
+
+      var xValues = [];
+      var yValues = [];
+
+      // Loop through table rows and collect input values
+      tableRows.forEach(function(row, index) {
+        if (index !== 0) { // Skip header row
+          var xInput = row.querySelector('.x-input').value;
+          var yInput = row.querySelector('.y-input').value;
+          xValues.push(parseFloat(xInput));
+          yValues.push(parseFloat(yInput));
+        }
+      });
+
+  xValues.sort(function(a, b) {
+    return a - b;
+  });
+      var existingChart = Chart.getChart(ctx);
+      if (existingChart) {
+        existingChart.destroy(); // Destroy the existing chart
+      }
+
+      var chart = new Chart(ctx, {
+        type: 'line',
+        data: {
+          labels: xValues,
+          datasets: [{
+            label: 'Volume of NaOH added in ml',
+            data: yValues,
+            borderColor: 'rgb(75, 192, 192)',
+            tension: 0.1
+          }]
+        },
+        options: {}
+      });
+    }
+  </script>
+</head>
+  
+  <body id="body" onload="call_add_row()">
+    <div class="load-holder" id="load-holder"><div id="loader"></div></div>
+    <script src="bonding.js"></script>
+    <header>
+      <div class="header">
+        <div class="hlogo"><img class="headlogo" src="../images/chemeasyicon.png" style="width:100%; height:100%" alt="chemeasyicon"></div>
+        <img class="headpro" style="display:none" id="userProfilePicture" alt="chemeasyicon">
+        <h1>ChemEasy</h1>
+      </div>
+    </header>
+    <nav>
+      <div class="topnav">
+        <button class="winback" onclick="window.history.back()"><img src="../images/winback.png" alt="<- Back" title="Back" height="20px" width="20px"></button>
+        <ul>
+        <li><a href="../index.html">Home</a></li>
+        <li><a href="../aboutus.html">About</a></li>
+        <li><a href="../contact.html">Contact</a></li>
+        <li><a href="../user/login.html" id="userNameinter">Login</a></li>
+          <a id="userName" style="display:none"></a>
+          <p id="userEmail" style="display:none"></p>
+        </ul>
+      </div>
+    </nav>
+    <main>
+      <div class="row">
+        <div class="column">
+          <div id="dec">
+            <h2>Ph-Metry</h2>
+            <p><blockquote cite="https://en.wikipedia.org/wiki/PH_meter">
+              A pH meter is a scientific instrument that measures the hydrogen-ion activity in water-based solutions, indicating its acidity or alkalinity expressed as pH. The pH meter measures the difference in electrical potential between a pH electrode and a reference electrode, and so the pH meter is sometimes referred to as a "potentiometric pH meter". The difference in electrical potential relates to the acidity or pH of the solution. Testing of pH via pH meters (pH-metry) is used in many applications ranging from laboratory experimentation to quality control.
+            </blockquote></p>
+          </div>
+        </div>
+      </div>
+      <br><br>
+
+      <table style="width:50%;text-align:left;" cellpadding="8" cellspacing="7">
+        <tr>
+          <td> Total Volume of NaOH to be added in ml: </td>
+          <td><input type="number" id="vol1" name="vol1" value="5"  oninput="call_add_row()"></td>
+        </tr>
+        <tr>
+          <td>
+            Concentration of NaOH in Normality(N): 
+          </td>
+          <td>
+            <input type="number" id="conc2" name="conc2" value="0.5">
+          </td>
+        </tr>
+        <tr>
+          <td>
+            Volume of Acetic Acid in Beaker in ml: 
+          </td>
+          <td>
+            <input type="number" id="vol2" name="vol2" value="20.0">
+          </td>
+        </tr>
+        <tr>
+          <td>
+            Volume of H<sub>2</sub>O in Beaker in ml: 
+          </td>
+          <td>
+            <input type="number" id="vol3" name="vol3" value="30.0">
+          </td>
+        </tr>
+        <tr>
+          <td>
+            Rate at which NaOH to be added from the burette to the beaker in ml:
+          </td>
+          <td>
+            <input type="number" id="rate" name="rate" value="1" min = "0.1" max="1000" onblur="check_rate()">
+            <script>
+              function check_rate(){
+                var rate = document.getElementById("rate").value;
+                var rate_value = parseFloat(rate);
+                if(rate_value<=0){
+                  alert("Please enter valid value for rate");
+                  return;
+                }
+                else{
+                  call_add_row();
+                }
+              }
+            </script>
+          </td>
+        </tr>
+      </table>
+      <br><br>
+      <label for="enter"> Enter: </label><br>
+      <div id="Datatables">
+        <table cellpadding="5px" cellspacing="10px" id="dataInput">
+          <tr><td>Sr.No.</td><td>ml of NaOH</td><td>pH</td></tr>
+        </table>
+  
+        <table cellpadding="5px" cellspacing="10px" id="dataInput2">
+          <tr><td>△pH</td><td>△V</td><td>△pH/△V</td><td>Mean (V)ml</td></tr>
+        </table>
+      </div>
+      <br><br>
+      <button onclick="add_row()" title="Add Row"> + </button>
+      <button onclick="delete_last_row()" title="Delete Row"> - </button>
+      <button type="submit" onclick="checkvalues()">Generate Graph</button>
+      <canvas id="myChart"></canvas>
+    </main>
+    <footer>
+      <div class="footer">
+        <p></p>
+      </div>
+    </footer>
+  </body>
+</html>
+    

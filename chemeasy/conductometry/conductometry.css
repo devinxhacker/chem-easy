@@ -1,0 +1,49 @@
+*{
+    scroll-behavior: smooth;
+    transition: all 0.5s ease-in-out;
+}
+
+table{
+  width: 2vw;
+  text-align: center;
+  background:  #dde6ed;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  margin-left: 10px;
+}
+
+
+
+input{
+  border: none;
+  background-color: white;
+  border-radius: 5px;
+  padding: 10px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  width:10vw;
+}
+
+#myChart{
+  display:none;
+  width: 10%;
+  height: 10%;
+  color: white;
+  background-color: #dde6ed;
+  padding: 3%;
+  border-radius: 5px;
+  margin-top: 20px;
+}
+
+
+@media(max-width: 768px){
+  table{
+    width: 100%;
+    margin-left: 0px;
+  }
+  input{
+    width: 39vw;
+  }
+  .x-input,.y-input{
+    width:20vw;
+  }
+}

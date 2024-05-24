@@ -1,0 +1,30 @@
+.sr_no{
+    width: 10px;
+}
+
+.Datatables{
+    margin-left:-10%;
+}
+
+#dataInput{
+    position: relative;
+    right: 15%;
+}
+
+#dataInput2{
+    position: relative;
+    left: 50%;
+    top: -377px;
+}
+
+@media only screen and (max-width: 800px){
+    #dataInput{
+        position: relative;
+        right: 0%;
+    }
+    #dataInput2{
+        position: relative;
+        left: 0%;
+        top: 10px;
+    }
+}

@@ -1,0 +1,193 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>ChemEasy-Electronic Configuration</title>
+  <meta name="description" content="ChemEasy is a website that allows users to easily access and learn about chemistry. We provide a variety of resources, including videos, articles, and interactive exercises, to help users learn and understand the fundamentals of chemistry. Our goal is to empower users with the knowledge and skills they need to succeed in their chemistry endeavors.">
+  <meta name="keywords" content="Chemistry, ChemEasy, Learn, Chemistry">
+  <meta name="author" content="ChemEasy">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#093b45">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="#093b45">
+  <meta name="apple-mobile-web-app-title" content="ChemEasy">
+  <meta name="msapplication-TileColor" content="#093b45">
+  <link href="../style.css" rel="stylesheet" type="text/css" />
+  <link href="effnc.css" rel="stylesheet" type="text/css" />
+  <link rel="icon" type="image/x-icon" href="../images/chemeasyicon.png">
+  <!-- <script src="https://cdn.jsdelivr.net/npm/disable-devtool"></script> -->
+  <script src="../script.js"></script>
+  <script src="effnc.js"></script>
+  <script src="../user/update.js" defer type="module"></script>
+</head>
+
+<body id="body">
+  <div class="load-holder" id="load-holder"><div id="loader"></div></div>
+  <header>
+    <div class="header">
+      <div class="hlogo"><img class="headlogo" src="../images/chemeasyicon.png" style="width:100%; height:100%" alt="chemeasyicon"></div>
+      <img class="headpro" style="display:none" id="userProfilePicture" alt="chemeasyicon">
+      <h1>Electronic Configuration</h1>
+    </div>
+  </header>
+  <nav>
+    <div class="topnav">
+      <button class="winback" onclick="window.history.back()"><img src="../images/winback.png" alt="<- Back" title="Back" height="20px" width="20px"></button>
+      <ul>
+        <li><a href="../index.html">Home</a></li>
+        <li><a href="../aboutus.html">About</a></li>
+        <li><a href="../contact.html">Contact</a></li>
+        <li><a href="../user/login.html" id="userNameinter">Login</a></li>
+          <a id="userName" style="display:none"></a>
+          <p id="userEmail" style="display:none"></p>
+      </ul>
+    </div>
+  </nav>
+  <main>
+    <div class="row">
+      <div class="column">
+        <div id="dec">
+          <h2>Electronic Configuration</h2>
+          <p>
+            The electron configuration of an element describes how electrons are distributed in its atomic orbitals. Electron configurations of atoms follow a standard notation in which all electron-containing atomic subshells (with the number of electrons they hold written in superscript) are placed in a sequence. For example, the electron configuration of sodium is 1s2 2s2 2p6 3s1.
+          </p>
+        </div>
+        <h3>To Know the Electronic Configuration: </h3>
+        <p>Select the Element: </p>
+        <select id="element" onchange="get_electronic_config()">
+          <option value="1">Hydrogen</option>
+          <option value="2">Helium</option>
+          <option value="3">Lithium</option>
+          <option value="4">Beryllium</option>
+          <option value="5">Boron</option>
+          <option value="6">Carbon</option>
+          <option value="7">Nitrogen</option>
+          <option value="8">Oxygen</option>
+          <option value="9">Fluorine</option>
+          <option value="10">Neon</option>
+          <option value="11">Sodium</option>
+          <option value="12">Magnesium</option>
+          <option value="13">Aluminum</option>
+          <option value="14">Silicon</option>
+          <option value="15">Phosphorus</option>
+          <option value="16">Sulfur</option>
+          <option value="17">Chlorine</option>
+          <option value="18">Argon</option>
+          <option value="19">Potassium</option>
+          <option value="20">Calcium</option>
+          <option value="21">Scandium</option>
+          <option value="22">Titanium</option>
+          <option value="23">Vanadium</option>
+          <option value="24">Chromium</option>
+          <option value="25">Manganese</option>
+          <option value="26">Iron</option>
+          <option value="27">Cobalt</option>
+          <option value="28">Nickel</option>
+          <option value="29">Copper</option>
+          <option value="30">Zinc</option>
+          <option value="31">Gallium</option>
+          <option value="32">Germanium</option>
+          <option value="33">Arsenic</option>
+          <option value="34">Selenium</option>
+          <option value="35">Bromine</option>
+          <option value="36">Krypton</option>
+          <option value="37">Rubidium</option>
+          <option value="38">Strontium</option>
+          <option value="39">Yttrium</option>
+          <option value="40">Zirconium</option>
+          <option value="41">Niobium</option>
+          <option value="42">Molybdenum</option>
+          <option value="43">Technetium</option>
+          <option value="44">Ruthenium</option>
+          <option value="45">Rhodium</option>
+          <option value="46">Palladium</option>
+          <option value="47">Silver</option>
+          <option value="48">Cadmium</option>
+          <option value="49">Indium</option>
+          <option value="50">Tin</option>
+          <option value="51">Antimony</option>
+          <option value="52">Tellurium</option>
+          <option value="53">Iodine</option>
+          <option value="54">Xenon</option>
+          <option value="55">Cesium</option>
+          <option value="56">Barium</option>
+          <option value="57">Lanthanum</option>
+          <option value="58">Cerium</option>
+          <option value="59">Praseodymium</option>
+          <option value="60">Neodymium</option>
+          <option value="61">Promethium</option>
+          <option value="62">Samarium</option>
+          <option value="63">Europium</option>
+          <option value="64">Gadolinium</option>
+          <option value="65">Terbium</option>
+          <option value="66">Dysprosium</option>
+          <option value="67">Holmium</option>
+          <option value="68">Erbium</option>
+          <option value="69">Thulium</option>
+          <option value="70">Ytterbium</option>
+          <option value="71">Lutetium</option>
+          <option value="72">Hafnium</option>
+          <option value="73">Tantalum</option>
+          <option value="74">Tungsten</option>
+          <option value="75">Rhenium</option>
+          <option value="76">Osmium</option>
+          <option value="77">Iridium</option>
+          <option value="78">Platinum</option>
+          <option value="79">Gold</option>
+          <option value="80">Mercury</option>
+          <option value="81">Thallium</option>
+          <option value="82">Lead</option>
+          <option value="83">Bismuth</option>
+          <option value="84">Polonium</option>
+          <option value="85">Astatine</option>
+          <option value="86">Radon</option>
+          <option value="87">Francium</option>
+          <option value="88">Radium</option>
+          <option value="89">Actinium</option>
+          <option value="90">Thorium</option>
+          <option value="91">Protactinium</option>
+          <option value="92">Uranium</option>
+          <option value="93">Neptunium</option>
+          <option value="94">Plutonium</option>
+          <option value="95">Americium</option>
+          <option value="96">Curium</option>
+          <option value="97">Berkelium</option>
+          <option value="98">Californium</json>
+          <option value="99">Einsteinium</option>
+          <option value="100">Fermium</option>
+          <option value="101">Mendelevium</option>
+          <option value="102">Nobelium</option>
+          <option value="103">Lawrencium</option>
+          <option value="104">Rutherfordium</option>
+          <option value="105">Dubnium</option>
+          <option value="106">Seaborgium</option>
+          <option value="107">Bohrium</option>
+          <option value="108">Hassium</option>
+          <option value="109">Meitnerium</option>
+          <option value="110">Darmstadtium</option>
+          <option value="111">Roentgenium</option>
+          <option value="112">Copernicium</option>
+          <option value="113">Nihonium</option>
+          <option value="114">Flerovium</option>
+          <option value="115">Moscovium</json>
+          <option value="116">Livermorium</option>
+          <option value="117">Tennessine</option>
+          <option value="118">Oganesson</option>
+        </select>
+        <h3>Electronic Configuration: </h3>
+        <p id="electronic_config">1s1</p>
+        <br><br><br><br>
+      </div>
+    </div>
+  </main>
+
+</body>
+<footer>
+  <div class="footer">
+    <p></p>
+  </div>
+</footer>
+
+</html>
