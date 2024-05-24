@@ -17,6 +17,15 @@
   <meta name="msapplication-TileColor" content="#093b45">
   <link href="../style.css" rel="stylesheet" type="text/css" />
   <script src="https://cdn.jsdelivr.net/npm/disable-devtool"></script>
+  <script src="https://cdn.onesignal.com/sdks/web/v16/OneSignalSDK.page.js" defer></script>
+  <script>
+    window.OneSignalDeferred = window.OneSignalDeferred || [];
+    OneSignalDeferred.push(function(OneSignal) {
+      OneSignal.init({
+        appId: "349b5d6e-ed69-4c7e-8ea4-b615dc3d0292",
+      });
+    });
+  </script>
   <script src="../script.js"></script>
   <link href="conductometry.css" rel="stylesheet" type="text/css" />
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>

@@ -21,6 +21,15 @@
   <script src="user.js" defer type="module"></script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
   <script src='https://cdn.jsdelivr.net/npm/disable-devtool'></script>
+  <script src="https://cdn.onesignal.com/sdks/web/v16/OneSignalSDK.page.js" defer></script>
+  <script>
+    window.OneSignalDeferred = window.OneSignalDeferred || [];
+    OneSignalDeferred.push(function(OneSignal) {
+      OneSignal.init({
+        appId: "349b5d6e-ed69-4c7e-8ea4-b615dc3d0292",
+      });
+    });
+  </script>
 
   <script src="../script.js"></script>
 </head>

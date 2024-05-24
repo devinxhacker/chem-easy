@@ -20,6 +20,15 @@
   <script src="user/update.js" defer type="module"></script>
   <script src='https://cdn.jsdelivr.net/npm/disable-devtool'></script>
   <script src="script.js"></script>
+  <script src="https://cdn.onesignal.com/sdks/web/v16/OneSignalSDK.page.js" defer></script>
+  <script>
+    window.OneSignalDeferred = window.OneSignalDeferred || [];
+    OneSignalDeferred.push(function(OneSignal) {
+      OneSignal.init({
+        appId: "349b5d6e-ed69-4c7e-8ea4-b615dc3d0292",
+      });
+    });
+  </script>
 </head>
 <body id="body">
   <div class="load-holder" id="load-holder"><div id="loader"></div></div>
