@@ -190,16 +190,18 @@ header h1 {
 }
 
 @media only screen and (max-width: 600px) {
-  
+
   .hlogo {
     width: 40px;
     height: 40px;
   }
+
   .header img {
     width: 10%;
     height: 10%;
   }
-  .headpro{
+
+  .headpro {
     top: -40px;
     left: 80vw;
   }
@@ -221,6 +223,7 @@ nav {
   position: sticky;
   top: -1px;
   text-align: center;
+  z-index: 1;
 }
 
 nav .active {
@@ -526,6 +529,7 @@ select:focus {
   border: 2px solid #000000;
   box-shadow: 0 0 10px #000000;
   filter: grayscale(100%);
+  z-index: -4;
 }
 
 
@@ -555,6 +559,7 @@ select:focus {
 .footer p:before {
   content: "© 2024 ChemEasy | All rights reserved.";
 }
+
 
 @media only screen and (max-width: 800px) {
 
