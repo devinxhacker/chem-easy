@@ -215,8 +215,8 @@
       var ctx = document.getElementById('myChart').getContext('2d');
       ctx.clearRect(0, 0, ctx.canvas.width, ctx.canvas.height);
 
-      // var reset = document.getElementById("reset");
-      // reset.style.display = "block";
+      var reset = document.getElementById("reset");
+      reset.style.display = "block";
 
       var xValues = [];
       var yValues = [];
@@ -448,7 +448,7 @@
       <table style="width:70%;text-align:left;" cellpadding="8" cellspacing="7">
         <tr>
           <td> Total Volume of NaOH to be added in ml: </td>
-          <td><input type="number" id="vol1" name="vol1" value="0.5"  oninput="call_add_row()"></td>
+          <td><input type="number" id="vol1" name="vol1" value="5"  oninput="call_add_row()"></td>
         </tr>
         <tr>
           <td>
@@ -479,7 +479,7 @@
             Rate at which NaOH to be added from the burette to the beaker in ml:
           </td>
           <td>
-            <input type="number" id="rate" name="rate" value="0.1" min = "0.1" max="1000" oninput="check_rate()" onblur="check_rate_alert()">
+            <input type="number" id="rate" name="rate" value="0.2" min = "0.1" max="1000" oninput="check_rate()" onblur="check_rate_alert()">
             <script>
               function check_rate(){
                 var rate = document.getElementById("rate").value;
@@ -530,19 +530,22 @@
       <br><br>
       <button onclick="add_row()" title="Add Row"> + </button>
       <button onclick="delete_last_row()" title="Delete Row"> - </button>
-      <button onclick="calculate()" title="Calculate">Calculate</button>
+      <button onclick="calculate()" title="Calculate">Calculate</button><br><br>
       <button type="submit" onclick="checkvalues()">Generate Graph</button>
       <br><br>
       <canvas id="myChart"></canvas><br><br>
       <canvas id="myChart2"></canvas>
       <br><br>
       <p>
-        Result: Equivalence point of the titration = <input type="number" id="result" readonly></input>
+        <b>Result: </b><br><br><br>Equivalence point of the titration = <input type="number" id="result" readonly></input>
       </p>
       <p>
         pKa of the weak acid (Acetic Acid) = <input type="number" id="pka" readonly></input>
       </p>
-      <p>Dissociation constant (Ka) of the acid = <input type="text" id="ka" readonly></p>
+      <p>Dissociation constant (Ka) of the acid =<br><br> <input type="text" id="ka" readonly></p><br><br>
+      <br><br>
+
+      <button onclick="location.reload()" id="reset" hidden> Refresh </button>
     </main>
     <footer>
       <div class="footer">
