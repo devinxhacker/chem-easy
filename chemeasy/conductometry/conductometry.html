@@ -144,7 +144,38 @@
             tension: 0.1
           }]
         },
-        options: {}
+        options: {
+          scales: {
+              x: {
+                  title: {
+                      display: true,
+                      text: 'Volume of NaOH' // Name of x-axis
+                  },
+                  beginAtZero: true // Optional
+              },
+              y: {
+                  title: {
+                      display: true,
+                      text: 'Conductance' // Name of y-axis
+                  },
+                  beginAtZero: true // Optional
+
+              }
+            },
+            plugins:{
+              title: {
+                display: true,
+                text: 'Conductance  v/s  Volume of NaOH',
+                font: {
+                  size: 20
+                }
+              },
+              legend: {
+                display: false
+              },
+
+            }
+        }
       });
     }
   </script>
