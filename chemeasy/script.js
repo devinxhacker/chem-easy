@@ -5,6 +5,8 @@ function checkEmailValidity(email) {
 }
 document.onreadystatechange = function () {
   var state = document.readyState
+  alert("Server Down, visit us later");
+  window.open("https://chem-easy.web.app/test/init.html","_self");
   if (state == 'interactive') {
     document.getElementById('loader').style.visibility = 'visible'
     document.getElementById('body').style.overflow = 'hidden'
@@ -95,3 +97,4 @@ function check() {
     document.getElementById("fs-frm").submit();
   }
 }
+
